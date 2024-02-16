@@ -1,10 +1,10 @@
 @font-face {
   font-family: morrlabs;
-  src: url(morrlabs.ttf) format("truetype");
+  src: url(/fonts/morrlabs.ttf) format("truetype");
 }
 @font-face {
   font-family: mohr medium;
-  src: url(mohr.ttf) format("truetype");
+  src: url(/fonts/mohr.ttf) format("truetype");
 }
 *,
 :after,
