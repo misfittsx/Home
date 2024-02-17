@@ -12,10 +12,6 @@
   box-sizing: border-box;
 }
 :root {
-  font-size: 15px;
-}
-html,
-body {
   --color-text: #000;
   --color-text-alt: #3e4843;
   --color-heading-main: #000;
@@ -39,8 +35,11 @@ body {
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
   margin: 0;
-  font-family: mohr medium, monospace;
+  font-family: 'mohr medium', monospace;
   overflow: hidden;
 }
 .js .loading:before,
@@ -194,16 +193,16 @@ main {
   flex-direction: column;
   grid-area: heading;
   justify-self: center;
-  margin-top: 2em;
+  margin-top: .5em;
   display: flex;
 }
 .frame__heading-main {
   color: var(--color-heading-main);
-  font-family: morrlabs, monospace;
+  font-family: 'morrlabs', monospace;
   line-height: 0.8;
   transition: transform 0.2s;
   display: block;
-  font-size: 1.5rem !important;
+  font-size: 1.85em !important;
 }
 .frame__heading-main:hover {
   color: var(--color-hover-pink);
@@ -228,7 +227,7 @@ main {
 }
 .frame--menu-open .social-links {
   fill: #fff;
-  margin-bottom: -1.5em;
+  margin-bottom: -2.5em !important;
 }
 .frame--menu-open .social-links:hover {
   fill: var(--color-hover-green);
@@ -240,8 +239,7 @@ main {
   place-items: center;
   width: 32px;
   height: 32px;
-  margin-top: 1.25em;
-  margin-right: 1.5em;
+  margin-top: .2em;
   display: inline-grid;
   top: 0;
   right: 0;
@@ -277,6 +275,7 @@ main {
   cursor: default;
   align-items: center;
   margin: 10vh 0 0;
+  margin-top: .5vh;
 }
 .content__banner-black {
   fill: #000;
@@ -307,67 +306,44 @@ main {
 }
 .button-enter {
   cursor: crosshair;
-  margin-top: 4vh;
+  margin-top: 1vh;
   transition: transform 0.5s;
 }
 .button-enter:hover {
   transform: translate(15px) rotate(-20deg);
 }
-.menu-wrap {
-  background: var(--color-bg-menu);
-  pointer-events: none;
-  opacity: 0;
-  grid-area: 1/1/2/2;
-  grid-template-rows: 100vh;
-  grid-template-columns: 100%;
-  display: grid;
-  position: relative;
-}
-.menu-wrap.menu-wrap--open {
-  pointer-events: auto;
-  opacity: 1;
-}
-.overlay {
-  z-index: 1000;
-  pointer-events: none;
-  grid-area: 1/1/2/2;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
 .modal {
   color: #374b41;
-  text-align: justify;
-  text-justify: inter-character;
+  text-align: left;
   z-index: 10;
   background-color: #ffffff4d;
   border: none;
   border-radius: 25px;
-  width: 80vh;
+  width: auto;
   padding: 1em;
   font-family: mohr medium;
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 700;
   line-height: 1.25em;
-  animation: 0.7s ease-out spring;
+  animation: .6s ease-out spring;
   box-shadow: 0 16px 16px -6px #0003;
+  flex-direction: column;
+  grid-area: 1/1/2/2;
 }
 .modal-connect {
   color: #374b41;
-  text-align: justify;
-  text-justify: inter-character;
+  text-align: left;
   z-index: 10;
   background-color: #ffffff4d;
   border: none;
   border-radius: 25px;
-  width: 80vh;
+  width: auto;
   padding: 1em 1em 3em;
   font-family: mohr medium;
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: 700;
   line-height: 1.25em;
-  animation: 0.7s ease-out spring;
+  animation: 0.6s ease-out spring;
   box-shadow: 0 16px 16px -6px #0003;
 }
 dialog {
@@ -386,7 +362,7 @@ dialog::backdrop {
   background: 0 0;
   border: none;
   font-family: mohr medium;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: 700;
 }
 .modal-open-button:hover {
@@ -409,8 +385,8 @@ dialog::backdrop {
 }
 .modal-close-button:hover {
   color: var(--color-hover-green);
+  transform: scale(1.5);
   transition: all 0.5s;
-  animation: 0.6s ease-out spring;
 }
 .modal-connect-button {
   color: #fff;
@@ -419,16 +395,16 @@ dialog::backdrop {
   border: none;
   border-radius: 0.5em;
   margin-top: 0.5em;
-  margin-left: 40%;
   padding: 0.25em 1em;
-  font-family: mohr medium;
+  font-family: 'mohr medium';
   font-size: 0.75em;
   font-weight: 700;
   position: absolute;
   box-shadow: 0 2px 2px 2px #00000026;
+  text-align: center !important;
 }
 .modal-connect-button:hover {
-  color: var(--color-hover-green);
+  color: var(--color-menu);
   transition: all 0.5s;
   animation: 0.6s ease-out spring;
 }
@@ -437,9 +413,10 @@ dialog::backdrop {
   grid-area: 1/1/2/2;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   display: flex;
   position: relative;
+  margin-top: -1em;
 }
 .menu__item {
   color: #fff;
@@ -466,6 +443,29 @@ dialog::backdrop {
 .menu__item:hover .menu__item-text {
   color: var(--color-menu-hover);
 }
+.menu-wrap {
+  background: var(--color-bg-menu);
+  pointer-events: none;
+  opacity: 0;
+  grid-area: 1/1/2/2;
+  grid-template-rows: 100vh;
+  grid-template-columns: 100%;
+  display: grid;
+  position: relative;
+}
+.menu-wrap.menu-wrap--open {
+  pointer-events: auto;
+  opacity: 1;
+}
+.overlay {
+  z-index: 1000;
+  pointer-events: none;
+  grid-area: 1/1/2/2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
 .tiles {
   opacity: 0.75;
   flex-direction: column;
@@ -473,8 +473,8 @@ dialog::backdrop {
   height: 150vh;
   display: flex;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%) rotate(22.5deg);
 }
 .tiles__line {
@@ -490,19 +490,19 @@ dialog::backdrop {
 }
 @keyframes spring {
   15% {
-    -webkit-transform-origin: 50%;
-    -webkit-transform: scale(1.5, 1.4);
+    -webkit-transform-origin: 75%;
+    -webkit-transform: scale(1.2, 1);
   }
   40% {
-    -webkit-transform-origin: 50%;
+    -webkit-transform-origin: 75%;
     -webkit-transform: scale(0.95);
   }
   75% {
-    -webkit-transform-origin: 50%;
-    -webkit-transform: scale(1.2, 1.05);
+    -webkit-transform-origin: 75%;
+    -webkit-transform: scale(1.1, 1);
   }
   to {
-    -webkit-transform-origin: 50%;
+    -webkit-transform-origin: 75%;
     -webkit-transform: scale(1);
   }
 }
@@ -534,8 +534,8 @@ dialog::backdrop {
   place-items: center;
   width: 32px;
   height: 32px;
-  margin-top: 2.25em;
-  margin-right: 2.5em;
+  margin-top: 1.2em;
+  margin-right: 1em;
   display: inline-grid;
   position: absolute;
   top: 0;
@@ -558,6 +558,7 @@ dialog::backdrop {
   grid-area: title;
   place-self: end center;
   display: flex;
+  margin-bottom: 6vh;
 }
 .footer__links img {
   margin: 0 0.5rem 0.5em;
@@ -617,13 +618,16 @@ dialog::backdrop {
     margin-top: 1em;
   }
   .frame__heading-main {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
   }
   .frame__heading-main:hover {
     color: var(--color-hover-pink);
   }
   .frame__heading-sub {
     font-size: 1rem;
+  }
+  .menu {
+    margin-top: -.5em;
   }
   .menu__item-tiny {
     font-size: 2rem;
@@ -635,7 +639,12 @@ dialog::backdrop {
   .content__banner-x {
     height: 12vh;
   }
+  .button-menu {
+    margin-top: 1em;
+    margin-right: 1.5em;
+  }
   .button-close {
+    margin-top: 2.5em;
     margin-right: 3em;
   }
   .button-menu:focus-visible,
@@ -648,6 +657,16 @@ dialog::backdrop {
     stroke: var(--color-hover-pink);
   }
   dialog {
-    margin-inline: 50vh;
+    margin-left: 25vw;
+    margin-right: 25vw;
+  }
+  .modal-open-button {
+    font-size: 5em;
+  }
+  .footer__links {
+    margin-bottom: 0;
+  }
+  .content__banner {
+    align-items: center;
   }
 }
