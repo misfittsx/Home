@@ -1,15 +1,10 @@
 @font-face {
-  font-family: 'morrlabs';
+  font-family: morrlabs;
   src: url(/fonts/morrlabs.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'mohr medium';
+  font-family: mohr medium;
   src: url(/fonts/mohr.ttf) format("truetype");
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
 }
 :root {
   --color-text: #000;
@@ -35,16 +30,19 @@
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}*,
+:after,
+:before {
+  box-sizing: border-box;
 }
 html,
 body {
   margin: 0;
   font-family: 'mohr medium', monospace;
   overflow: hidden;
-  height: 100dvh;
 }
 main {
-  grid-template-rows: 100vh;
+  grid-template-rows: 100dvh;
   grid-template-columns: 100%;
   display: grid;
 }
@@ -149,7 +147,7 @@ a:focus-visible {
   grid-template-areas: "author heading heading button" ". . . ." "links links links links" "sub sub sub sub" "title title title title";
   align-content: space-between;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   padding: 1rem 1rem 0.5rem;
   font-size: 1rem;
   display: grid;
@@ -160,35 +158,35 @@ a:focus-visible {
   --color-link-hover: var(--color-link-hover-alt);
   --color-heading-main: var(--color-heading-main-alt);
 }
-.frame-title {
+.frame__title {
   font-size: inherit;
   grid-area: title;
   justify-self: center;
   margin: 0.5rem 0 0;
   font-weight: 400;
 }
-.frame-links {
+.frame__links {
   grid-area: links;
   place-self: end center;
   margin-bottom: -0.75em;
   display: flex;
 }
-.frame-links a {
+.frame__links a {
   margin: 0 0.5rem;
 }
-.frame-author {
+.frame__author {
   grid-area: author;
   margin: 0;
 }
-.frame-button {
+.frame__button {
   grid-area: button;
   justify-self: end;
 }
-.frame--menu-open .frame-author {
+.frame--menu-open .frame__author {
   opacity: 0;
   pointer-events: none;
 }
-.frame-heading {
+.frame__heading {
   text-align: center;
   white-space: nowrap;
   flex-direction: column;
@@ -197,7 +195,7 @@ a:focus-visible {
   margin-top: .5em;
   display: flex;
 }
-.frame-heading-main {
+.frame__heading-main {
   color: var(--color-heading-main);
   font-family: 'morrlabs', monospace;
   line-height: 0.8;
@@ -205,20 +203,20 @@ a:focus-visible {
   display: block;
   font-size: 1.85em !important;
 }
-.frame-heading-main:hover {
+.frame__heading-main:hover {
   color: var(--color-hover-pink);
   animation: 0.6s ease-out spring;
 }
-.frame--menu-open .frame-heading-main:hover {
+.frame--menu-open .frame__heading-main:hover {
   color: var(--color-hover-green);
   animation: 0.6s ease-out spring;
 }
-.frame-heading-sub {
+.frame__heading-sub {
   color: var(--color-heading-sub);
   font-size: 0.75rem;
   line-height: 1;
 }
-.frame--menu-open .frame-heading-sub {
+.frame--menu-open .frame__heading-sub {
   pointer-events: none;
   opacity: 0;
 }
@@ -266,28 +264,28 @@ a:focus-visible {
   grid-area: 1/1/2/2;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: inline-flex;
   position: relative;
   overflow: hidden;
 }
-.content-banner {
+.content__banner {
   cursor: default;
   align-items: center;
   margin: 10vh 0 0;
   margin-top: .5vh;
 }
-.content-banner-black {
+.content__banner-black {
   fill: #000;
   height: 5vh;
   padding-right: 0.3em;
 }
-.content-banner-x {
+.content__banner-x {
   fill: #ef605f;
   height: 5vh;
 }
-.content-title {
+.content__title {
   text-align: center;
   cursor: default;
   margin: 10vh 0 0;
@@ -295,12 +293,12 @@ a:focus-visible {
   font-weight: 400;
   line-height: 0.75;
 }
-.content-title-main {
+.content__title-main {
   will-change: opacity, transform;
   font-size: 10vw;
   display: block;
 }
-.content-title-sub {
+.content__title-sub {
   will-change: opacity, transform;
   font-size: 2vw;
   display: block;
@@ -414,12 +412,12 @@ dialog::backdrop {
   grid-area: 1/1/2/2;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   display: flex;
   position: relative;
   margin-top: -1em;
 }
-.menu-item {
+.menu__item {
   color: #fff;
   cursor: pointer;
   text-align: right;
@@ -429,19 +427,19 @@ dialog::backdrop {
   position: relative;
   font-size: 6vw !important;
 }
-.menu-item:hover .menu-item-tiny {
+.menu__item:hover .menu__item-tiny {
   color: #fff;
 }
-.menu-item-tiny {
+.menu__item-tiny {
   font-size: 1rem;
 }
-.menu-item:nth-child(odd) {
+.menu__item:nth-child(odd) {
   margin-left: -10vw;
 }
-.menu-item-text {
+.menu__item-text {
   color: var(--color-menu);
 }
-.menu-item:hover .menu-item-text {
+.menu__item:hover .menu__item-text {
   color: var(--color-menu-hover);
 }
 .menu-wrap {
@@ -449,7 +447,7 @@ dialog::backdrop {
   pointer-events: none;
   opacity: 0;
   grid-area: 1/1/2/2;
-  grid-template-rows: 100vh;
+  grid-template-rows: 100%;
   grid-template-columns: 100%;
   display: grid;
   position: relative;
@@ -478,15 +476,15 @@ dialog::backdrop {
   left: 50vw;
   transform: translate(-50%, -50%) rotate(22.5deg);
 }
-.tiles-line {
+.tiles__line {
   animation: 10s linear infinite runner;
   display: flex;
   transform: translate(25%);
 }
-.tiles-line:nth-child(2) {
+.tiles__line:nth-child(2) {
   animation-duration: 16s;
 }
-.tiles-line:nth-child(3) {
+.tiles__line:nth-child(3) {
   animation-duration: 22s;
 }
 @keyframes spring {
@@ -512,7 +510,7 @@ dialog::backdrop {
     transform: translate(-25%);
   }
 }
-.tiles-line-img {
+.tiles__line-img {
   --tile-margin: 3vw;
   margin: var(--tile-margin);
   background-position: 50%;
@@ -524,7 +522,7 @@ dialog::backdrop {
   height: 30vh;
   box-shadow: 6px 0 25px #0000004d;
 }
-.tiles-line-img--large {
+.tiles__line-img--large {
   border-radius: 20vh;
   width: 100vh;
 }
@@ -555,12 +553,12 @@ dialog::backdrop {
 .button-close:hover svg {
   transform: scale(1.1);
 }
-.footer-links {
+.footer__links {
   grid-area: title;
   place-self: end center;
   display: flex;
 }
-.footer-links img {
+.footer__links img {
   margin: 0 0.5rem 0.5em;
 }
 .nft-links {
@@ -574,16 +572,16 @@ dialog::backdrop {
   opacity: 0.8;
   cursor: crosshair;
 }
-.frame--menu-open .footer-links,
-.frame--menu-open .sub-links {
+.frame--menu-open .footer__links,
+.frame--menu-open .sub__links {
   visibility: hidden;
 }
-.sub-links {
+.sub__links {
   grid-area: sub;
   place-self: end center;
   display: flex;
 }
-.sub-links a {
+.sub__links a {
   margin: 0 0.5rem;
 }
 .nft-text {
@@ -596,50 +594,48 @@ dialog::backdrop {
   html,
   body {
     overflow: hidden;
-  }
-  .main {
-    height: 100dvh;
+    min-height: 100dvh;
   }
   .frame {
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas: "author heading heading button" ". . . ." "links links links links" "sub sub sub sub" "title title title title";
     font-size: 1.5rem;
   }
-  .frame-title {
+  .frame__title {
     place-self: end start;
     margin: 0 3rem 0 0;
   }
-  .frame-links {
+  .frame__links {
     justify-self: center;
     padding: 0;
     display: flex;
   }
-  .frame-links a:not(:last-child) {
+  .frame__links a:not(:last-child) {
     margin-right: 0.5rem;
   }
-  .frame-heading {
+  .frame__heading {
     margin-top: 1em;
   }
-  .frame-heading-main {
+  .frame__heading-main {
     font-size: 1.5em !important;
   }
-  .frame-heading-main:hover {
+  .frame__heading-main:hover {
     color: var(--color-hover-pink);
   }
-  .frame-heading-sub {
+  .frame__heading-sub {
     font-size: 1rem;
   }
   .menu {
     margin-top: -.5em;
   }
-  .menu-item-tiny {
+  .menu__item-tiny {
     font-size: 2rem;
   }
-  .menu-item {
+  .menu__item {
     font-size: 15vh;
   }
-  .content-banner-black,
-  .content-banner-x {
+  .content__banner-black,
+  .content__banner-x {
     height: 12vh;
   }
   .button-menu {
@@ -666,7 +662,10 @@ dialog::backdrop {
   .modal-open-button {
     font-size: 5em;
   }
-  .content-banner {
+  .footer__links {
+    margin-bottom: 0;
+  }
+  .content__banner {
     align-items: center;
   }
 }

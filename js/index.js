@@ -4975,6 +4975,8 @@ var tC = {
   },
   core: { _removeProperty: te, _getMatrix: tm },
 };
+
+
 (y.gsap.utils.checkPrefix = H),
   (y.gsap.core.getStyleSaver = Y),
   (e = "x,y,z,scale,scaleX,scaleY,xPercent,yPercent"),
